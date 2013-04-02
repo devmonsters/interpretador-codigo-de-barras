@@ -1,6 +1,7 @@
 package com.ewmix.interpretador.codigodebarras;
 
 public enum InstituicaoFinanceira {
+
     HSBC("399");
 
     private final String codigo;
@@ -11,5 +12,14 @@ public enum InstituicaoFinanceira {
 
     public String getCodigo() {
         return this.codigo;
+    }
+
+    public static InstituicaoFinanceira valueOfCodigo(String codigo) {
+        for (InstituicaoFinanceira instituicaoFinanceira : values()) {
+            if (instituicaoFinanceira.getCodigo().equals(codigo)) {
+                return instituicaoFinanceira;
+            }
+        }
+        return null;
     }
 }
