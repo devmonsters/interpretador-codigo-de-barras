@@ -1,12 +1,13 @@
 package com.ewmix.interpretador.codigodebarras.impl;
 
+import com.ewmix.interpretador.codigodebarras.Interpretador;
+
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-import com.ewmix.interpretador.codigodebarras.Interpretador;
-
 public class InterpretadorHsbc implements Interpretador {
+
     private final String codigoBarras;
 
     public InterpretadorHsbc(final String codigoBarras) {
