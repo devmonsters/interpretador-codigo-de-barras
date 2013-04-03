@@ -70,6 +70,35 @@
                     <debug>false</debug>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.6.2.201302030002</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>com.ewmix.*</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>com.ewmix.*</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
