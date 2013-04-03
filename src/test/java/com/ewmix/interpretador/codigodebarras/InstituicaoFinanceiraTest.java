@@ -14,4 +14,9 @@ public class InstituicaoFinanceiraTest {
     public void retornaHSBCPeloCodigo() {
         Assert.assertEquals(InstituicaoFinanceira.HSBC, InstituicaoFinanceira.valueOfCodigo("399"));
     }
+
+    @Test
+    public void hsbcPeloNome() {
+        Assert.assertEquals(InstituicaoFinanceira.HSBC, InstituicaoFinanceira.valueOf("HSBC"));
+    }
 }
