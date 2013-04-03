@@ -115,6 +115,7 @@
                     <excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
                     <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
                     <xmlOutput>true</xmlOutput>
+                    <findbugsXmlOutput>true</findbugsXmlOutput>
                 </configuration>
             </plugin>
         </plugins>
