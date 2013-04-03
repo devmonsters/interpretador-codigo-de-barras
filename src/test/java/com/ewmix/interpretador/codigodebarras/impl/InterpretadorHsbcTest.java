@@ -12,6 +12,7 @@ public class InterpretadorHsbcTest {
     @Test
     public void interpretarBoletoTeste() {
         final InterpretadorHsbc leitorHsbc = new InterpretadorHsbc("39995567200001119002843306779912340123456001");
+        Assert.assertEquals("39995567200001119002843306779912340123456001", leitorHsbc.getCodigoBarras());
         Assert.assertEquals("399", leitorHsbc.getBanco());
         Assert.assertEquals(9, leitorHsbc.getMoeda());
         Assert.assertEquals(5, leitorHsbc.getDigitoAutoConferenciaCodigoBarras());
