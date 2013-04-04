@@ -3,13 +3,14 @@ package com.ewmix.interpretador.codigodebarras;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.ewmix.interpretador.codigodebarras.impl.InterpretadorGenerico;
 import com.ewmix.interpretador.codigodebarras.impl.InterpretadorHsbc;
 
 public class InterpretadorFactoryTest {
 
     @Test
-    public void bancoInvalidoDeveRetornarNulo() throws Exception {
-        Assert.assertNull(new InterpretadorFactory().getInterpretador("00095567200001119002843306779912340123456001"));
+    public void bancoDesconhecidoDeveRetornarGenerico() throws Exception {
+        Assert.assertEquals(InterpretadorGenerico.class, new InterpretadorFactory().getInterpretador("00095567200001119002843306779912340123456001").getClass());
     }
 
     @Test

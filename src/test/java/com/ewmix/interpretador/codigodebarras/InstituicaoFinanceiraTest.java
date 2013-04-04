@@ -5,14 +5,19 @@ import org.junit.Test;
 
 public class InstituicaoFinanceiraTest {
 
-    @Test
-    public void retornaNuloPeloCodigoInvalido() {
-        Assert.assertEquals(null, InstituicaoFinanceira.valueOfCodigo(""));
+    @Test(expected = IllegalArgumentException.class)
+    public void geraExcecaoSeCodigoInvalido() {
+        InstituicaoFinanceira.valueOfCodigo("");
     }
 
     @Test
     public void retornaHSBCPeloCodigo() {
         Assert.assertEquals(InstituicaoFinanceira.HSBC, InstituicaoFinanceira.valueOfCodigo("399"));
+    }
+
+    @Test
+    public void codigoNaoConhecidoRetornaGenerico() {
+        Assert.assertEquals(InstituicaoFinanceira.GENERICO, InstituicaoFinanceira.valueOfCodigo("999"));
     }
 
     @Test

@@ -11,13 +11,19 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<dependency.junit.version>4.11</dependency.junit.version>
+
+		<plugin.maven-compiler-plugin.version>3.0</plugin.maven-compiler-plugin.version>
+		<plugin.jacoco-maven-plugin.version>0.6.2.201302030002</plugin.jacoco-maven-plugin.version>
+		<plugin.findbugs-maven-plugin.version>2.5.2</plugin.findbugs-maven-plugin.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>${dependency.junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -62,7 +68,7 @@
 				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
+				<version>${plugin.maven-compiler-plugin.version}</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
@@ -73,7 +79,7 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.6.2.201302030002</version>
+				<version>${plugin.jacoco-maven-plugin.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -107,7 +113,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>2.5.2</version>
+				<version>${plugin.findbugs-maven-plugin.version}</version>
 				<configuration>
 					<effort>Max</effort>
 					<threshold>Low</threshold>

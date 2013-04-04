@@ -1,60 +1,39 @@
 package com.ewmix.interpretador.codigodebarras.impl;
 
-import com.ewmix.interpretador.codigodebarras.Interpretador;
+import com.ewmix.interpretador.codigodebarras.AbstractInterpretador;
 
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
-
-public class InterpretadorHsbc implements Interpretador {
-
-    private final String codigoBarras;
+public class InterpretadorHsbc extends AbstractInterpretador {
 
     public InterpretadorHsbc(final String codigoBarras) {
-        this.codigoBarras = codigoBarras;
+        super(codigoBarras);
     }
 
-    public String getCodigoBarras() {
-        return this.codigoBarras;
-    }
-
-    public String getBanco() {
-        return this.codigoBarras.substring(0, 3);
-    }
-
-    public int getMoeda() {
-        return Integer.parseInt(this.codigoBarras.substring(3, 4));
-    }
-
-    public int getDigitoAutoConferenciaCodigoBarras() {
-        return Integer.parseInt(this.codigoBarras.substring(4, 5));
-    }
-
-    public int getFatorVencimento() {
-        return Integer.parseInt(this.codigoBarras.substring(5, 9));
-    }
-
-    public BigDecimal getValor() {
-        return new BigDecimal(this.codigoBarras.substring(9, 19)).divide(new BigDecimal("100"), new MathContext(18)).setScale(2, RoundingMode.HALF_UP);
-    }
-
+    @Override
     public String getNossoNumero() {
-        return this.codigoBarras.substring(19, 30);
+        return super.getCodigoBarras().substring(19, 30);
     }
 
+    @Override
     public String getAgencia() {
-        return this.codigoBarras.substring(30, 34);
+        return super.getCodigoBarras().substring(30, 34);
     }
 
+    @Override
     public String getContaCobranca() {
-        return this.codigoBarras.substring(34, 41);
+        return super.getCodigoBarras().substring(34, 41);
     }
 
+    @Override
     public String getCodigoCarteira() {
-        return this.codigoBarras.substring(41, 43);
+        return super.getCodigoBarras().substring(41, 43);
     }
 
     public String getCodigoAplicativoCobranca() {
-        return this.codigoBarras.substring(43, 44);
+        return super.getCodigoBarras().substring(43, 44);
+    }
+
+    @Override
+    public boolean isContaCobrancaRastreavel() {
+        return "1".equals(this.getCodigoAplicativoCobranca());
     }
 }
