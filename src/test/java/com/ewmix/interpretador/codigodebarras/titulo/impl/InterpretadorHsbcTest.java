@@ -1,14 +1,15 @@
-package com.ewmix.interpretador.codigodebarras.impl;
+package com.ewmix.interpretador.codigodebarras.titulo.impl;
 
 import java.math.BigDecimal;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.ewmix.interpretador.codigodebarras.AbstractInterpretadorTest;
-import com.ewmix.interpretador.codigodebarras.InstituicaoFinanceira;
+import com.ewmix.interpretador.codigodebarras.titulo.AbstractInterpretadorTituloTest;
+import com.ewmix.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
+import com.ewmix.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
 
-public class InterpretadorHsbcTest extends AbstractInterpretadorTest {
+public class InterpretadorHsbcTest extends AbstractInterpretadorTituloTest {
 
     @Override
     protected InstituicaoFinanceira getInstituicaoFinanceira() {
@@ -17,7 +18,7 @@ public class InterpretadorHsbcTest extends AbstractInterpretadorTest {
 
     @Test
     public void interpretarBoletoTesteApp1Rastreavel() {
-        final InterpretadorHsbc leitorHsbc = new InterpretadorHsbc("39995567200001119002843306779912340123456001");
+        final InterpretadorTituloHsbc leitorHsbc = new InterpretadorTituloHsbc("39995567200001119002843306779912340123456001");
         Assert.assertEquals("39995567200001119002843306779912340123456001", leitorHsbc.getCodigoBarras());
         Assert.assertEquals("399", leitorHsbc.getBanco());
         Assert.assertEquals(9, leitorHsbc.getMoeda());
@@ -34,7 +35,7 @@ public class InterpretadorHsbcTest extends AbstractInterpretadorTest {
 
     @Test
     public void interpretarBoletoTesteApp2NaoRastreavel() {
-        final InterpretadorHsbc leitorHsbc = new InterpretadorHsbc("39995567200001119002843306779912340123456002");
+        final InterpretadorTituloHsbc leitorHsbc = new InterpretadorTituloHsbc("39995567200001119002843306779912340123456002");
         Assert.assertEquals("39995567200001119002843306779912340123456002", leitorHsbc.getCodigoBarras());
         Assert.assertEquals("399", leitorHsbc.getBanco());
         Assert.assertEquals(9, leitorHsbc.getMoeda());

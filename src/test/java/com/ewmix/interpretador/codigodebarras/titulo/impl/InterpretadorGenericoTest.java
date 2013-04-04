@@ -1,15 +1,16 @@
-package com.ewmix.interpretador.codigodebarras.impl;
+package com.ewmix.interpretador.codigodebarras.titulo.impl;
 
 import java.math.BigDecimal;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.ewmix.interpretador.codigodebarras.AbstractInterpretador;
-import com.ewmix.interpretador.codigodebarras.AbstractInterpretadorTest;
-import com.ewmix.interpretador.codigodebarras.InstituicaoFinanceira;
+import com.ewmix.interpretador.codigodebarras.titulo.AbstractInterpretadorTituloTest;
+import com.ewmix.interpretador.codigodebarras.titulo.AbstractInterpretadorTitulo;
+import com.ewmix.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
+import com.ewmix.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
 
-public class InterpretadorGenericoTest extends AbstractInterpretadorTest {
+public class InterpretadorGenericoTest extends AbstractInterpretadorTituloTest {
 
     @Override
     protected InstituicaoFinanceira getInstituicaoFinanceira() {
@@ -18,7 +19,7 @@ public class InterpretadorGenericoTest extends AbstractInterpretadorTest {
 
     @Test
     public void interpretarBoletoTeste() {
-        final AbstractInterpretador leitorGenerico = new InterpretadorGenerico("39995567200001119002843306779912340123456001");
+        final AbstractInterpretadorTitulo leitorGenerico = new InterpretadorTituloGenerico("39995567200001119002843306779912340123456001");
         Assert.assertEquals("39995567200001119002843306779912340123456001", leitorGenerico.getCodigoBarras());
         Assert.assertEquals("399", leitorGenerico.getBanco());
         Assert.assertEquals(9, leitorGenerico.getMoeda());

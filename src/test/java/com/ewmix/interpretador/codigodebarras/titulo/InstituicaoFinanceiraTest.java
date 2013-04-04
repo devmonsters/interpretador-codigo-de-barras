@@ -1,7 +1,9 @@
-package com.ewmix.interpretador.codigodebarras;
+package com.ewmix.interpretador.codigodebarras.titulo;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.ewmix.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
 
 public class InstituicaoFinanceiraTest {
 

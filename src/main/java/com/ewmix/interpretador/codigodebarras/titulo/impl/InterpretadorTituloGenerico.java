@@ -1,10 +1,10 @@
-package com.ewmix.interpretador.codigodebarras.impl;
+package com.ewmix.interpretador.codigodebarras.titulo.impl;
 
-import com.ewmix.interpretador.codigodebarras.AbstractInterpretador;
+import com.ewmix.interpretador.codigodebarras.titulo.AbstractInterpretadorTitulo;
 
-public class InterpretadorGenerico extends AbstractInterpretador {
+public class InterpretadorTituloGenerico extends AbstractInterpretadorTitulo {
 
-    public InterpretadorGenerico(final String codigoBarras) {
+    public InterpretadorTituloGenerico(final String codigoBarras) {
         super(codigoBarras);
     }
 

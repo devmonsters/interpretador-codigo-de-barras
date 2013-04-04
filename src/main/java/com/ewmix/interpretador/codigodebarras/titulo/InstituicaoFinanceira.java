@@ -1,17 +1,17 @@
-package com.ewmix.interpretador.codigodebarras;
+package com.ewmix.interpretador.codigodebarras.titulo;
 
-import com.ewmix.interpretador.codigodebarras.impl.InterpretadorGenerico;
-import com.ewmix.interpretador.codigodebarras.impl.InterpretadorHsbc;
+import com.ewmix.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
+import com.ewmix.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
 
 public enum InstituicaoFinanceira {
 
-    GENERICO("000", InterpretadorGenerico.class),
-    HSBC("399", InterpretadorHsbc.class);
+    GENERICO("000", InterpretadorTituloGenerico.class),
+    HSBC("399", InterpretadorTituloHsbc.class);
 
     private final String codigo;
-    private final Class<? extends AbstractInterpretador> interpretador;
+    private final Class<? extends AbstractInterpretadorTitulo> interpretador;
 
-    private InstituicaoFinanceira(final String codigo, final Class<? extends AbstractInterpretador> interpretador) {
+    private InstituicaoFinanceira(final String codigo, final Class<? extends AbstractInterpretadorTitulo> interpretador) {
         this.codigo = codigo;
         this.interpretador = interpretador;
     }
@@ -20,7 +20,7 @@ public enum InstituicaoFinanceira {
         return this.codigo;
     }
 
-    public Class<? extends AbstractInterpretador> getInterpretador() {
+    public Class<? extends AbstractInterpretadorTitulo> getInterpretador() {
         return this.interpretador;
     }
 

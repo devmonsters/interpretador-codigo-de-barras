@@ -1,4 +1,4 @@
-package com.ewmix.interpretador.codigodebarras;
+package com.ewmix.interpretador.codigodebarras.titulo;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -7,12 +7,20 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public abstract class AbstractInterpretador {
+import com.ewmix.interpretador.codigodebarras.Interpretador;
+import com.ewmix.interpretador.codigodebarras.TipoDocumento;
+
+public abstract class AbstractInterpretadorTitulo implements Interpretador {
     private static final Calendar DATA_BASE_VENCIMENTO = new GregorianCalendar(1997, Calendar.OCTOBER, 7);
     private final String codigoBarras;
 
-    public AbstractInterpretador(final String codigoBarras) {
+    public AbstractInterpretadorTitulo(final String codigoBarras) {
         this.codigoBarras = codigoBarras;
+    }
+
+    @Override
+    public TipoDocumento getTipoDocumento() {
+        return TipoDocumento.TITULO;
     }
 
     public String getCodigoBarras() {
@@ -35,12 +43,14 @@ public abstract class AbstractInterpretador {
         return Integer.parseInt(this.codigoBarras.substring(5, 9));
     }
 
+    @Override
     public Date getDataVencimento() {
-        final Calendar dataVencimento = (Calendar) AbstractInterpretador.DATA_BASE_VENCIMENTO.clone();
+        final Calendar dataVencimento = (Calendar) AbstractInterpretadorTitulo.DATA_BASE_VENCIMENTO.clone();
         dataVencimento.add(Calendar.DAY_OF_MONTH, this.getFatorVencimento());
         return dataVencimento.getTime();
     }
 
+    @Override
     public BigDecimal getValor() {
         return new BigDecimal(this.codigoBarras.substring(9, 19)).divide(new BigDecimal("100"), new MathContext(18)).setScale(2, RoundingMode.HALF_UP);
     }
