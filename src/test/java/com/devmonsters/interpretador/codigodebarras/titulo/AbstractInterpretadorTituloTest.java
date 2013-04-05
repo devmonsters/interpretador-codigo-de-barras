@@ -1,4 +1,4 @@
-package com.ewmix.interpretador.codigodebarras.titulo;
+package com.devmonsters.interpretador.codigodebarras.titulo;
 
 import java.math.BigDecimal;
 import java.util.Calendar;

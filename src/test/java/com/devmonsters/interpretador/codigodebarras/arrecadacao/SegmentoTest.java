@@ -1,4 +1,4 @@
-package com.ewmix.interpretador.codigodebarras.arrecadacao;
+package com.devmonsters.interpretador.codigodebarras.arrecadacao;
 
 import org.junit.Assert;
 import org.junit.Test;

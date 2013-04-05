@@ -1,4 +1,4 @@
-package com.ewmix.interpretador.codigodebarras.titulo;
+package com.devmonsters.interpretador.codigodebarras.titulo;
 
 import org.junit.Assert;
 import org.junit.Test;

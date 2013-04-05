@@ -1,14 +1,14 @@
-package com.ewmix.interpretador.codigodebarras.titulo.impl;
+package com.devmonsters.interpretador.codigodebarras.titulo.impl;
 
 import java.math.BigDecimal;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.devmonsters.interpretador.codigodebarras.titulo.AbstractInterpretadorTituloTest;
 import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
 import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
-import com.ewmix.interpretador.codigodebarras.titulo.AbstractInterpretadorTituloTest;
 
 public class InterpretadorHsbcTest extends AbstractInterpretadorTituloTest {
     
