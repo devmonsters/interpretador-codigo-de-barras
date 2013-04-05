@@ -3,7 +3,7 @@ package com.ewmix.interpretador.codigodebarras.titulo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.ewmix.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
+import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
 
 public class InstituicaoFinanceiraTest {
 

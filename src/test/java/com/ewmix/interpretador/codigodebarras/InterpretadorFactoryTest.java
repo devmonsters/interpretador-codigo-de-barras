@@ -3,9 +3,10 @@ package com.ewmix.interpretador.codigodebarras;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.ewmix.interpretador.codigodebarras.arrecadacao.InterpretadorArrecadacao;
-import com.ewmix.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
-import com.ewmix.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
+import com.devmonsters.interpretador.codigodebarras.InterpretadorFactory;
+import com.devmonsters.interpretador.codigodebarras.arrecadacao.InterpretadorArrecadacao;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
 
 public class InterpretadorFactoryTest {
 

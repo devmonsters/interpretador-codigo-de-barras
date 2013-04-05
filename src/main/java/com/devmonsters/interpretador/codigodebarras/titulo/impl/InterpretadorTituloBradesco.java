@@ -1,6 +1,6 @@
-package com.ewmix.interpretador.codigodebarras.titulo.impl;
+package com.devmonsters.interpretador.codigodebarras.titulo.impl;
 
-import com.ewmix.interpretador.codigodebarras.titulo.AbstractInterpretadorTitulo;
+import com.devmonsters.interpretador.codigodebarras.titulo.AbstractInterpretadorTitulo;
 
 public class InterpretadorTituloBradesco extends AbstractInterpretadorTitulo {
     

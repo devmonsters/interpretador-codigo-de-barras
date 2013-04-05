@@ -1,4 +1,4 @@
-package com.ewmix.interpretador.codigodebarras.arrecadacao;
+package com.devmonsters.interpretador.codigodebarras.arrecadacao;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -6,8 +6,8 @@ import java.math.RoundingMode;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import com.ewmix.interpretador.codigodebarras.Interpretador;
-import com.ewmix.interpretador.codigodebarras.TipoDocumento;
+import com.devmonsters.interpretador.codigodebarras.Interpretador;
+import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
 
 public class InterpretadorArrecadacao implements Interpretador {
 

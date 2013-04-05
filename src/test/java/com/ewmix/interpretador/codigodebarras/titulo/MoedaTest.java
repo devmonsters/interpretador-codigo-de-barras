@@ -3,6 +3,8 @@ package com.ewmix.interpretador.codigodebarras.titulo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
+
 public class MoedaTest {
     
     @Test

@@ -8,8 +8,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.ewmix.interpretador.codigodebarras.InterpretadorFactory;
-import com.ewmix.interpretador.codigodebarras.TipoDocumento;
+import com.devmonsters.interpretador.codigodebarras.InterpretadorFactory;
+import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
+import com.devmonsters.interpretador.codigodebarras.titulo.AbstractInterpretadorTitulo;
+import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
+import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 
 /**
  * Classe abstrata para testes de interpretadores. As implementacoes devem estender esta.

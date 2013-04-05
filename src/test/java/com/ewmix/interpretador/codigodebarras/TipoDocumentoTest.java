@@ -3,6 +3,8 @@ package com.ewmix.interpretador.codigodebarras;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
+
 public class TipoDocumentoTest {
 
     @Test

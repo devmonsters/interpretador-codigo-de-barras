@@ -1,8 +1,8 @@
-package com.ewmix.interpretador.codigodebarras.titulo;
+package com.devmonsters.interpretador.codigodebarras.titulo;
 
-import com.ewmix.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBradesco;
-import com.ewmix.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
-import com.ewmix.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBradesco;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
 
 public enum InstituicaoFinanceira {
     

@@ -7,7 +7,9 @@ import java.util.GregorianCalendar;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.ewmix.interpretador.codigodebarras.TipoDocumento;
+import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
+import com.devmonsters.interpretador.codigodebarras.arrecadacao.InterpretadorArrecadacao;
+import com.devmonsters.interpretador.codigodebarras.arrecadacao.Segmento;
 
 public class InterpretadorArrecadacaoTest {
 

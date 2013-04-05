@@ -1,4 +1,4 @@
-package com.ewmix.interpretador.codigodebarras;
+package com.devmonsters.interpretador.codigodebarras;
 
 public enum TipoDocumento {
 

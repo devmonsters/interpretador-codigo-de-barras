@@ -5,9 +5,10 @@ import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
+import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBradesco;
 import com.ewmix.interpretador.codigodebarras.titulo.AbstractInterpretadorTituloTest;
-import com.ewmix.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
-import com.ewmix.interpretador.codigodebarras.titulo.Moeda;
 
 public class InterpretadorBradescoTest extends AbstractInterpretadorTituloTest {
     

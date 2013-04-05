@@ -1,4 +1,4 @@
-package com.ewmix.interpretador.codigodebarras.arrecadacao;
+package com.devmonsters.interpretador.codigodebarras.arrecadacao;
 
 public enum Segmento {
     PREFEITURAS(1, "Prefeituras"),

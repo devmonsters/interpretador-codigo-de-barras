@@ -3,6 +3,8 @@ package com.ewmix.interpretador.codigodebarras.arrecadacao;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.devmonsters.interpretador.codigodebarras.arrecadacao.Segmento;
+
 public class SegmentoTest {
 
     @Test
