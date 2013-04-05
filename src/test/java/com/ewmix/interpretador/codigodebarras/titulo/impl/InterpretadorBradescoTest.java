@@ -29,9 +29,7 @@ public class InterpretadorBradescoTest extends AbstractInterpretadorTituloTest {
         Assert.assertEquals(5651, leitorBradesco.getFatorVencimento());
         Assert.assertEquals("2657", leitorBradesco.getAgencia());
         Assert.assertEquals("0900080688091", leitorBradesco.getNossoNumero());
-        
         Assert.assertEquals("0000012", leitorBradesco.getContaCobranca());
-        
         Assert.assertEquals("09", leitorBradesco.getCodigoCarteira());
         Assert.assertTrue(leitorBradesco.isContaCobrancaRastreavel());
     }
