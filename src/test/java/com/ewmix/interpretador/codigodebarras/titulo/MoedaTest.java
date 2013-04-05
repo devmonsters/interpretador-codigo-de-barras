@@ -11,7 +11,15 @@ public class MoedaTest {
     }
     
     @Test
+    public void identificadorPorNome() {
+        Assert.assertEquals(Moeda.REAL, Moeda.valueOf("REAL"));
+    }
+    
+    @Test
     public void real() {
-        Assert.assertEquals(Moeda.REAL, Moeda.valueOfCodigo(9));
+        final Moeda moeda = Moeda.valueOfCodigo(9);
+        Assert.assertEquals(Moeda.REAL, moeda);
+        Assert.assertEquals(9, moeda.getCodigo());
+        Assert.assertEquals("Real", moeda.getDescricao());
     }
 }
