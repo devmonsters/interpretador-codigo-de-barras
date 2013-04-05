@@ -49,7 +49,7 @@ public abstract class AbstractInterpretadorTituloTest {
     
     @Test
     public void moeda() throws Exception {
-        Assert.assertEquals(9, this.interpretadorAbstrato.getMoeda());
+        Assert.assertEquals(Moeda.REAL, this.interpretadorAbstrato.getMoeda());
     }
     
     @Test

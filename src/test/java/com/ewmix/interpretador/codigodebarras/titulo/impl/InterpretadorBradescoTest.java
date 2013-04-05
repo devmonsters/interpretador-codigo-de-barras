@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import com.ewmix.interpretador.codigodebarras.titulo.AbstractInterpretadorTituloTest;
 import com.ewmix.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
+import com.ewmix.interpretador.codigodebarras.titulo.Moeda;
 
 public class InterpretadorBradescoTest extends AbstractInterpretadorTituloTest {
     
@@ -20,7 +21,7 @@ public class InterpretadorBradescoTest extends AbstractInterpretadorTituloTest {
         final InterpretadorTituloBradesco leitorBradesco = new InterpretadorTituloBradesco("23796565100000658712657090008068809100000120");
         Assert.assertEquals("23796565100000658712657090008068809100000120", leitorBradesco.getCodigoBarras());
         Assert.assertEquals("237", leitorBradesco.getBanco());
-        Assert.assertEquals(9, leitorBradesco.getMoeda());
+        Assert.assertEquals(Moeda.REAL, leitorBradesco.getMoeda());
         Assert.assertEquals(6, leitorBradesco.getDigitoAutoConferenciaCodigoBarras());
         Assert.assertEquals(new BigDecimal("658.71"), leitorBradesco.getValor());
         Assert.assertEquals("2657090008068809100000120", leitorBradesco.getCampoLivre());

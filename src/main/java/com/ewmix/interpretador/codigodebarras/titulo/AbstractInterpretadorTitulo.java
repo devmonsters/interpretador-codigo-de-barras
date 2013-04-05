@@ -32,8 +32,8 @@ public abstract class AbstractInterpretadorTitulo implements Interpretador {
         return this.codigoBarras.substring(0, 3);
     }
     
-    public int getMoeda() {
-        return Integer.parseInt(this.codigoBarras.substring(3, 4));
+    public Moeda getMoeda() {
+        return Moeda.valueOfCodigo(Integer.parseInt(this.codigoBarras.substring(3, 4)));
     }
     
     public int getDigitoAutoConferenciaCodigoBarras() {
