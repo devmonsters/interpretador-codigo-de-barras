@@ -11,7 +11,7 @@ import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira
 import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
 
-public class InterpretadorGenericoTest extends AbstractInterpretadorTituloTest {
+public class InterpretadorTituloGenericoTest extends AbstractInterpretadorTituloTest {
     
     @Override
     protected InstituicaoFinanceira getInstituicaoFinanceira() {

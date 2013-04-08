@@ -10,7 +10,7 @@ import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira
 import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
 
-public class InterpretadorHsbcTest extends AbstractInterpretadorTituloTest {
+public class InterpretadorTituloHsbcTest extends AbstractInterpretadorTituloTest {
     
     @Override
     protected InstituicaoFinanceira getInstituicaoFinanceira() {
