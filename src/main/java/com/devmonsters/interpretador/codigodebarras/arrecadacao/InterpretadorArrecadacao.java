@@ -31,12 +31,8 @@ public class InterpretadorArrecadacao implements Interpretador {
         return Integer.parseInt(this.codigoBarras.substring(0, 1));
     }
 
-    public int getIdentificacaoSegmento() {
-        return Integer.parseInt(this.codigoBarras.substring(1, 2));
-    }
-
     public Segmento getSegmento() {
-        return Segmento.valueOfCodigo(this.getIdentificacaoSegmento());
+        return Segmento.valueOfCodigo(Integer.parseInt(this.codigoBarras.substring(1, 2)));
     }
 
     public int getIdentificacaoValor() {

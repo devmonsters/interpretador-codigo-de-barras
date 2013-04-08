@@ -8,8 +8,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
-import com.devmonsters.interpretador.codigodebarras.arrecadacao.InterpretadorArrecadacao;
-import com.devmonsters.interpretador.codigodebarras.arrecadacao.Segmento;
 
 public class InterpretadorArrecadacaoTest {
 
@@ -17,7 +15,6 @@ public class InterpretadorArrecadacaoTest {
     public void interpretarArrecadacaoPrefeitura() {
         final InterpretadorArrecadacao interpretadorArrecadacao = new InterpretadorArrecadacao("81690000000638834332012073104002012980062101");
         Assert.assertEquals(8, interpretadorArrecadacao.getCodigoIdentificacaoProduto());
-        Assert.assertEquals(1, interpretadorArrecadacao.getIdentificacaoSegmento());
         Assert.assertEquals(Segmento.PREFEITURAS, interpretadorArrecadacao.getSegmento());
         Assert.assertEquals(6, interpretadorArrecadacao.getIdentificacaoValor());
         Assert.assertEquals(9, interpretadorArrecadacao.getDigitoVerificadorGeral());
@@ -34,7 +31,6 @@ public class InterpretadorArrecadacaoTest {
     public void interpretarArrecadacaoSaneamento() {
         final InterpretadorArrecadacao interpretadorArrecadacao = new InterpretadorArrecadacao("82690000004127600130000000000102257321303445");
         Assert.assertEquals(8, interpretadorArrecadacao.getCodigoIdentificacaoProduto());
-        Assert.assertEquals(2, interpretadorArrecadacao.getIdentificacaoSegmento());
         Assert.assertEquals(Segmento.SANEAMENTO, interpretadorArrecadacao.getSegmento());
         Assert.assertEquals(6, interpretadorArrecadacao.getIdentificacaoValor());
         Assert.assertEquals(9, interpretadorArrecadacao.getDigitoVerificadorGeral());
@@ -51,7 +47,6 @@ public class InterpretadorArrecadacaoTest {
     public void interpretarArrecadacaoEnergiaEletrica() {
         final InterpretadorArrecadacao interpretadorArrecadacao = new InterpretadorArrecadacao("83630000000490601620000010100201382824675826");
         Assert.assertEquals(8, interpretadorArrecadacao.getCodigoIdentificacaoProduto());
-        Assert.assertEquals(3, interpretadorArrecadacao.getIdentificacaoSegmento());
         Assert.assertEquals(Segmento.ENERGIA_ELETRICA_E_GAS, interpretadorArrecadacao.getSegmento());
         Assert.assertEquals(6, interpretadorArrecadacao.getIdentificacaoValor());
         Assert.assertEquals(3, interpretadorArrecadacao.getDigitoVerificadorGeral());
@@ -68,7 +63,6 @@ public class InterpretadorArrecadacaoTest {
     public void interpretarArrecadacaoTelecomunicacoes() {
         final InterpretadorArrecadacao interpretadorArrecadacao = new InterpretadorArrecadacao("84660000001356000690011210978294803130130410");
         Assert.assertEquals(8, interpretadorArrecadacao.getCodigoIdentificacaoProduto());
-        Assert.assertEquals(4, interpretadorArrecadacao.getIdentificacaoSegmento());
         Assert.assertEquals(Segmento.TELECOMUNICACOES, interpretadorArrecadacao.getSegmento());
         Assert.assertEquals(6, interpretadorArrecadacao.getIdentificacaoValor());
         Assert.assertEquals(6, interpretadorArrecadacao.getDigitoVerificadorGeral());
@@ -85,7 +79,6 @@ public class InterpretadorArrecadacaoTest {
     public void interpretarArrecadacaoOrgaosGovernamentais() {
         final InterpretadorArrecadacao interpretadorArrecadacao = new InterpretadorArrecadacao("85850000001045402941309401000000130151769700");
         Assert.assertEquals(8, interpretadorArrecadacao.getCodigoIdentificacaoProduto());
-        Assert.assertEquals(5, interpretadorArrecadacao.getIdentificacaoSegmento());
         Assert.assertEquals(Segmento.ORGAOS_GOVERNAMENTAIS, interpretadorArrecadacao.getSegmento());
         Assert.assertEquals(8, interpretadorArrecadacao.getIdentificacaoValor());
         Assert.assertEquals(5, interpretadorArrecadacao.getDigitoVerificadorGeral());
@@ -102,7 +95,6 @@ public class InterpretadorArrecadacaoTest {
     public void interpretarArrecadacaoCarnesOrgaosCnpj() {
         final InterpretadorArrecadacao interpretadorArrecadacao = new InterpretadorArrecadacao("86630000001056509248608000304745847102111325");
         Assert.assertEquals(8, interpretadorArrecadacao.getCodigoIdentificacaoProduto());
-        Assert.assertEquals(6, interpretadorArrecadacao.getIdentificacaoSegmento());
         Assert.assertEquals(Segmento.CARNES_DEMAIS_EMPRESAS_ORGAOS, interpretadorArrecadacao.getSegmento());
         Assert.assertEquals(6, interpretadorArrecadacao.getIdentificacaoValor());
         Assert.assertEquals(3, interpretadorArrecadacao.getDigitoVerificadorGeral());
@@ -119,7 +111,6 @@ public class InterpretadorArrecadacaoTest {
     public void interpretarArrecadacaoUsoExclusivoBanco() {
         final InterpretadorArrecadacao interpretadorArrecadacao = new InterpretadorArrecadacao("89980005702129300010109552316988150427822511");
         Assert.assertEquals(8, interpretadorArrecadacao.getCodigoIdentificacaoProduto());
-        Assert.assertEquals(9, interpretadorArrecadacao.getIdentificacaoSegmento());
         Assert.assertEquals(Segmento.USO_EXCLUSIVO_BANCO, interpretadorArrecadacao.getSegmento());
         Assert.assertEquals(9, interpretadorArrecadacao.getIdentificacaoValor());
         Assert.assertEquals(8, interpretadorArrecadacao.getDigitoVerificadorGeral());
