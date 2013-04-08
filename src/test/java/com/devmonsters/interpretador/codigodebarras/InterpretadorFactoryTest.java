@@ -3,8 +3,8 @@ package com.devmonsters.interpretador.codigodebarras;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.devmonsters.interpretador.codigodebarras.InterpretadorFactory;
 import com.devmonsters.interpretador.codigodebarras.arrecadacao.InterpretadorArrecadacao;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBradesco;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
 
@@ -21,6 +21,11 @@ public class InterpretadorFactoryTest {
     }
 
     @Test
+    public void pagamentoDeArrecadacao() throws Exception {
+        Assert.assertEquals(InterpretadorArrecadacao.class, new InterpretadorFactory().getInterpretador("85850000001045402941309401000000130151769700").getClass());
+    }
+
+    @Test
     public void bancoDesconhecidoDeveRetornarGenerico() throws Exception {
         Assert.assertEquals(InterpretadorTituloGenerico.class, new InterpretadorFactory().getInterpretador("00095567200001119002843306779912340123456001").getClass());
     }
@@ -31,7 +36,7 @@ public class InterpretadorFactoryTest {
     }
 
     @Test
-    public void pagamentoDeArrecadacao() throws Exception {
-        Assert.assertEquals(InterpretadorArrecadacao.class, new InterpretadorFactory().getInterpretador("85850000001045402941309401000000130151769700").getClass());
+    public void banco237deveRetornarBradesco() throws Exception {
+        Assert.assertEquals(InterpretadorTituloBradesco.class, new InterpretadorFactory().getInterpretador("23796565100000658712657090008068809100000120").getClass());
     }
 }
