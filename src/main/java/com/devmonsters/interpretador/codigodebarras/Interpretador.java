@@ -10,10 +10,10 @@ import java.util.Date;
  * @author Fernando M. Pinheiro
  */
 public interface Interpretador {
-    
-    public TipoDocumento getTipoDocumento();
-    
-    public BigDecimal getValor();
-    
-    public Date getDataVencimento();
+
+    TipoDocumento getTipoDocumento();
+
+    BigDecimal getValor();
+
+    Date getDataVencimento();
 }
