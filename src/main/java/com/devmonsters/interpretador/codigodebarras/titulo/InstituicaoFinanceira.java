@@ -4,13 +4,15 @@ import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTit
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloItau;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloSantander;
 
 public enum InstituicaoFinanceira {
 
     GENERICO("000", InterpretadorTituloGenerico.class),
     BRADESCO("237", InterpretadorTituloBradesco.class),
     HSBC("399", InterpretadorTituloHsbc.class),
-    ITAU("341", InterpretadorTituloItau.class);
+    ITAU("341", InterpretadorTituloItau.class),
+    SANTANDER("033", InterpretadorTituloSantander.class);
 
     private final String codigo;
     private final Class<? extends AbstractInterpretadorTitulo> interpretador;

@@ -8,6 +8,7 @@ import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTit
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloItau;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloSantander;
 
 public class InterpretadorFactoryTest {
 
@@ -44,5 +45,10 @@ public class InterpretadorFactoryTest {
     @Test
     public void banco341deveRetornarItau() throws Exception {
         Assert.assertEquals(InterpretadorTituloItau.class, new InterpretadorFactory().getInterpretador("34196568300043759501572273150081234987655000").getClass());
+    }
+
+    @Test
+    public void banco033deveRetornarSantander() throws Exception {
+        Assert.assertEquals(InterpretadorTituloSantander.class, new InterpretadorFactory().getInterpretador("03391569400000842649095363672000010239510102").getClass());
     }
 }
