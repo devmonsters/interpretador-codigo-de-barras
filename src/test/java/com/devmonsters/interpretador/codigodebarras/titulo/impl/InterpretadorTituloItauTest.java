@@ -12,14 +12,14 @@ import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 public class InterpretadorTituloItauTest extends AbstractInterpretadorTituloTest {
 
     @Override
-    protected InstituicaoFinanceira getInstituicaoFinanceira() {
-        return InstituicaoFinanceira.ITAU;
+    protected String getCodigoInstituicaoFinanceira() {
+        return InstituicaoFinanceira.ITAU.getCodigo();
     }
 
     @Test
     public void interpretarBoletoTeste() {
         final InterpretadorTituloItau leitorItau = new InterpretadorTituloItau("34196568300043759501572273150081234987655000");
-        Assert.assertEquals("34196568300043759501572273150081234987655000", leitorItau.getCodigoBarras());
+        Assert.assertEquals("34196568300043759501572273150081234987655000", leitorItau.getCodigoDeBarras());
         Assert.assertEquals("341", leitorItau.getBanco());
         Assert.assertEquals(Moeda.REAL, leitorItau.getMoeda());
         Assert.assertEquals(6, leitorItau.getDigitoAutoConferenciaCodigoBarras());

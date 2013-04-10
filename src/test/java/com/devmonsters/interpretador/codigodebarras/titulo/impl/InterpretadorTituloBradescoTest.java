@@ -12,14 +12,14 @@ import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 public class InterpretadorTituloBradescoTest extends AbstractInterpretadorTituloTest {
 
     @Override
-    protected InstituicaoFinanceira getInstituicaoFinanceira() {
-        return InstituicaoFinanceira.BRADESCO;
+    protected String getCodigoInstituicaoFinanceira() {
+        return InstituicaoFinanceira.BRADESCO.getCodigo();
     }
 
     @Test
     public void interpretarBoletoTeste() {
         final InterpretadorTituloBradesco leitorBradesco = new InterpretadorTituloBradesco("23796565100000658712657090008068809100000120");
-        Assert.assertEquals("23796565100000658712657090008068809100000120", leitorBradesco.getCodigoBarras());
+        Assert.assertEquals("23796565100000658712657090008068809100000120", leitorBradesco.getCodigoDeBarras());
         Assert.assertEquals("237", leitorBradesco.getBanco());
         Assert.assertEquals(Moeda.REAL, leitorBradesco.getMoeda());
         Assert.assertEquals(6, leitorBradesco.getDigitoAutoConferenciaCodigoBarras());

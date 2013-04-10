@@ -1,11 +1,30 @@
 package com.devmonsters.interpretador.codigodebarras.titulo.impl;
 
 import com.devmonsters.interpretador.codigodebarras.titulo.AbstractInterpretadorTitulo;
+import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
 
 public class InterpretadorTituloGenerico extends AbstractInterpretadorTitulo {
 
-    public InterpretadorTituloGenerico(final String codigoBarras) {
-        super(codigoBarras);
+    public InterpretadorTituloGenerico(final String codigoDeBarras) {
+        super(codigoDeBarras);
+    }
+
+    @Override
+    public InstituicaoFinanceira getInstituicaoFinanceira() {
+        return InstituicaoFinanceira.GENERICO;
+    }
+
+    /**
+     * Caso especial, somente sera valido caso nao exista a instituicao financeira implementada.
+     */
+    @Override
+    public boolean isValidoParaInterpretacao() {
+        for (final InstituicaoFinanceira instituicao : InstituicaoFinanceira.values()) {
+            if (super.getCodigoDeBarras().startsWith(instituicao.getCodigo())) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

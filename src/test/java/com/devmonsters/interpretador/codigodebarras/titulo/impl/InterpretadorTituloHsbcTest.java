@@ -8,19 +8,18 @@ import org.junit.Test;
 import com.devmonsters.interpretador.codigodebarras.titulo.AbstractInterpretadorTituloTest;
 import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
 import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
 
 public class InterpretadorTituloHsbcTest extends AbstractInterpretadorTituloTest {
-    
+
     @Override
-    protected InstituicaoFinanceira getInstituicaoFinanceira() {
-        return InstituicaoFinanceira.HSBC;
+    protected String getCodigoInstituicaoFinanceira() {
+        return InstituicaoFinanceira.HSBC.getCodigo();
     }
-    
+
     @Test
     public void interpretarBoletoTesteApp1Rastreavel() {
         final InterpretadorTituloHsbc leitorHsbc = new InterpretadorTituloHsbc("39995567200001119002843306779912340123456001");
-        Assert.assertEquals("39995567200001119002843306779912340123456001", leitorHsbc.getCodigoBarras());
+        Assert.assertEquals("39995567200001119002843306779912340123456001", leitorHsbc.getCodigoDeBarras());
         Assert.assertEquals("399", leitorHsbc.getBanco());
         Assert.assertEquals(Moeda.REAL, leitorHsbc.getMoeda());
         Assert.assertEquals(5, leitorHsbc.getDigitoAutoConferenciaCodigoBarras());
@@ -33,11 +32,11 @@ public class InterpretadorTituloHsbcTest extends AbstractInterpretadorTituloTest
         Assert.assertEquals("1", leitorHsbc.getCodigoAplicativoCobranca());
         Assert.assertTrue(leitorHsbc.isContaCobrancaRastreavel());
     }
-    
+
     @Test
     public void interpretarBoletoTesteApp2NaoRastreavel() {
         final InterpretadorTituloHsbc leitorHsbc = new InterpretadorTituloHsbc("39995567200001119002843306779912340123456002");
-        Assert.assertEquals("39995567200001119002843306779912340123456002", leitorHsbc.getCodigoBarras());
+        Assert.assertEquals("39995567200001119002843306779912340123456002", leitorHsbc.getCodigoDeBarras());
         Assert.assertEquals("399", leitorHsbc.getBanco());
         Assert.assertEquals(Moeda.REAL, leitorHsbc.getMoeda());
         Assert.assertEquals(5, leitorHsbc.getDigitoAutoConferenciaCodigoBarras());

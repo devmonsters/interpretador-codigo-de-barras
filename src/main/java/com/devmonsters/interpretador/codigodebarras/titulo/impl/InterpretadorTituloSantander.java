@@ -1,16 +1,27 @@
 package com.devmonsters.interpretador.codigodebarras.titulo.impl;
 
 import com.devmonsters.interpretador.codigodebarras.titulo.AbstractInterpretadorTitulo;
+import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
 
 public class InterpretadorTituloSantander extends AbstractInterpretadorTitulo {
 
-    public InterpretadorTituloSantander(final String codigoBarras) {
-        super(codigoBarras);
+    public InterpretadorTituloSantander(final String codigoDeBarras) {
+        super(codigoDeBarras);
+    }
+
+    @Override
+    public InstituicaoFinanceira getInstituicaoFinanceira() {
+        return InstituicaoFinanceira.SANTANDER;
+    }
+
+    @Override
+    public boolean isValidoParaInterpretacao() {
+        return super.getCodigoDeBarras().startsWith(this.getInstituicaoFinanceira().getCodigo());
     }
 
     @Override
     public String getNossoNumero() {
-        return super.getCodigoBarras().substring(27, 40);
+        return super.getCodigoDeBarras().substring(27, 40);
     }
 
     @Override
@@ -20,12 +31,12 @@ public class InterpretadorTituloSantander extends AbstractInterpretadorTitulo {
 
     @Override
     public String getContaCobranca() {
-        return super.getCodigoBarras().substring(20, 27);
+        return super.getCodigoDeBarras().substring(20, 27);
     }
 
     @Override
     public String getCodigoCarteira() {
-        return this.getCodigoBarras().substring(41, 44);
+        return this.getCodigoDeBarras().substring(41, 44);
     }
 
     @Override
@@ -34,10 +45,10 @@ public class InterpretadorTituloSantander extends AbstractInterpretadorTitulo {
     }
 
     public int getFixo() {
-        return Integer.parseInt(super.getCodigoBarras().substring(19, 20));
+        return Integer.parseInt(super.getCodigoDeBarras().substring(19, 20));
     }
 
     public int getIOS() {
-        return Integer.parseInt(super.getCodigoBarras().substring(40, 41));
+        return Integer.parseInt(super.getCodigoDeBarras().substring(40, 41));
     }
 }

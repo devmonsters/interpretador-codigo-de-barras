@@ -29,7 +29,12 @@ public class InterpretadorFactoryTest {
 
     @Test
     public void bancoDesconhecidoDeveRetornarGenerico() throws Exception {
-        Assert.assertEquals(InterpretadorTituloGenerico.class, new InterpretadorFactory().getInterpretador("00095567200001119002843306779912340123456001").getClass());
+        Assert.assertEquals(InterpretadorTituloGenerico.class, new InterpretadorFactory().getInterpretador("99995567200001119002843306779912340123456001").getClass());
+    }
+
+    @Test
+    public void banco000GenericoEConhecidoMasNaoEValido() throws Exception {
+        Assert.assertNull(new InterpretadorFactory().getInterpretador("00095567200001119002843306779912340123456001"));
     }
 
     @Test
@@ -49,6 +54,6 @@ public class InterpretadorFactoryTest {
 
     @Test
     public void banco033deveRetornarSantander() throws Exception {
-        Assert.assertEquals(InterpretadorTituloSantander.class, new InterpretadorFactory().getInterpretador("03391569400000842649095363672000010239510102").getClass());
+        Assert.assertEquals(InterpretadorTituloSantander.class, new InterpretadorFactory().getInterpretador("03391569400000842649123456772000010239510102").getClass());
     }
 }

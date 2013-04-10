@@ -11,10 +11,10 @@ import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
 
 public class InterpretadorArrecadacao implements Interpretador {
 
-    private final String codigoBarras;
+    private final String codigoDeBarras;
 
     public InterpretadorArrecadacao(final String codigoBarras) {
-        this.codigoBarras = codigoBarras;
+        this.codigoDeBarras = codigoBarras;
     }
 
     @Override
@@ -23,40 +23,50 @@ public class InterpretadorArrecadacao implements Interpretador {
     }
 
     @Override
+    public boolean isValidoParaInterpretacao() {
+        return this.getCodigoDeBarras().startsWith("8");
+    }
+
+    @Override
+    public String getCodigoDeBarras() {
+        return this.codigoDeBarras;
+    }
+
+    @Override
     public BigDecimal getValor() {
-        return new BigDecimal(this.codigoBarras.substring(4, 15)).divide(new BigDecimal("100"), new MathContext(18)).setScale(2, RoundingMode.HALF_UP);
+        return new BigDecimal(this.codigoDeBarras.substring(4, 15)).divide(new BigDecimal("100"), new MathContext(18)).setScale(2, RoundingMode.HALF_UP);
     }
 
     public int getCodigoIdentificacaoProduto() {
-        return Integer.parseInt(this.codigoBarras.substring(0, 1));
+        return Integer.parseInt(this.codigoDeBarras.substring(0, 1));
     }
 
     public Segmento getSegmento() {
-        return Segmento.valueOfCodigo(Integer.parseInt(this.codigoBarras.substring(1, 2)));
+        return Segmento.valueOfCodigo(Integer.parseInt(this.codigoDeBarras.substring(1, 2)));
     }
 
     public int getIdentificacaoValor() {
-        return Integer.parseInt(this.codigoBarras.substring(2, 3));
+        return Integer.parseInt(this.codigoDeBarras.substring(2, 3));
     }
 
     public int getDigitoVerificadorGeral() {
-        return Integer.parseInt(this.codigoBarras.substring(3, 4));
+        return Integer.parseInt(this.codigoDeBarras.substring(3, 4));
     }
 
     public String getIdentificacaoEmpresaOrgao() {
-        return this.codigoBarras.substring(15, 19);
+        return this.codigoDeBarras.substring(15, 19);
     }
 
     public String getCampoLivre1UtilizacaoEmpresaOrgao() {
-        return this.codigoBarras.substring(19, 44);
+        return this.codigoDeBarras.substring(19, 44);
     }
 
     public String getCnpjMf() {
-        return this.codigoBarras.substring(15, 23);
+        return this.codigoDeBarras.substring(15, 23);
     }
 
     public String getCampoLivre2UtilizacaoEmpresaOrgao() {
-        return this.codigoBarras.substring(23, 44);
+        return this.codigoDeBarras.substring(23, 44);
     }
 
     @Override
