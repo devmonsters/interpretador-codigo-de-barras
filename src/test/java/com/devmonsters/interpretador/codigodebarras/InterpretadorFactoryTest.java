@@ -59,7 +59,12 @@ public class InterpretadorFactoryTest {
     }
 
     @Test
-    public void banco104deveRetornarCaixaEconomicaFederalNossoNumero11Posicoes() throws Exception {
+    public void banco104deveRetornarCaixaEconomicaFederalNossoNumero11PosicoesCarteiraRapida() throws Exception {
         Assert.assertEquals(InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes.class, new InterpretadorFactory().getInterpretador("10493567800000380009000004369025500300012340").getClass());
+    }
+
+    @Test
+    public void banco104deveRetornarCaixaEconomicaFederalNossoNumero11PosicoesCarteiraRapidaSemRegistro() throws Exception {
+        Assert.assertEquals(InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes.class, new InterpretadorFactory().getInterpretador("10492563800001113838210881967099600312345678").getClass());
     }
 }

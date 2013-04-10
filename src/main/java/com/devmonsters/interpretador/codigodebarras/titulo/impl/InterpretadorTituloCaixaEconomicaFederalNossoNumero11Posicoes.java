@@ -5,13 +5,16 @@ import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira
 
 public class InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes extends AbstractInterpretadorTitulo {
 
+    private static final String CODIGO_CARTEIRA_RAPIDA = "9";
+    private static final String CODIGO_CARTEIRA_SEM_REGISTRO = "82";
+
     public InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes(final String codigoDeBarras) {
         super(codigoDeBarras);
     }
 
     @Override
     public boolean isValidoParaInterpretacao() {
-        return super.getCodigoDeBarras().startsWith(this.getInstituicaoFinanceira().getCodigo());
+        return super.getCodigoDeBarras().startsWith(this.getInstituicaoFinanceira().getCodigo()) && (InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes.CODIGO_CARTEIRA_RAPIDA.equals(this.getCodigoCarteira()) || InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes.CODIGO_CARTEIRA_SEM_REGISTRO.equals(this.getCodigoCarteira()));
     }
 
     @Override
@@ -21,7 +24,7 @@ public class InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes exten
 
     @Override
     public String getNossoNumero() {
-        return super.getCodigoDeBarras().substring(20, 29);
+        return super.getCodigoDeBarras().substring(InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes.CODIGO_CARTEIRA_SEM_REGISTRO.equals(this.getCodigoCarteira()) ? 21 : 20, 29);
     }
 
     @Override
@@ -36,7 +39,10 @@ public class InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes exten
 
     @Override
     public String getCodigoCarteira() {
-        return super.getCodigoDeBarras().substring(19, 20);
+        if (InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes.CODIGO_CARTEIRA_RAPIDA.equals(super.getCodigoDeBarras().substring(19, 20))) {
+            return InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes.CODIGO_CARTEIRA_RAPIDA;
+        }
+        return super.getCodigoDeBarras().substring(19, 21);
     }
 
     @Override
