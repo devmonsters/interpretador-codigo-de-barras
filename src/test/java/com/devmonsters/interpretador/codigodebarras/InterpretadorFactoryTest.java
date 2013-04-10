@@ -6,6 +6,7 @@ import org.junit.Test;
 import com.devmonsters.interpretador.codigodebarras.arrecadacao.InterpretadorArrecadacao;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBradesco;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloCaixaEconomicaFederalNossoNumero16Posicoes;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloItau;
@@ -66,5 +67,10 @@ public class InterpretadorFactoryTest {
     @Test
     public void banco104deveRetornarCaixaEconomicaFederalNossoNumero11PosicoesCarteiraRapidaSemRegistro() throws Exception {
         Assert.assertEquals(InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes.class, new InterpretadorFactory().getInterpretador("10492563800001113838210881967099600312345678").getClass());
+    }
+
+    @Test
+    public void banco104deveRetornarCaixaEconomicaFederalNossoNumero16Posicoes() throws Exception {
+        Assert.assertEquals(InterpretadorTituloCaixaEconomicaFederalNossoNumero16Posicoes.class, new InterpretadorFactory().getInterpretador("10491567300000146811234503698700000010238279").getClass());
     }
 }

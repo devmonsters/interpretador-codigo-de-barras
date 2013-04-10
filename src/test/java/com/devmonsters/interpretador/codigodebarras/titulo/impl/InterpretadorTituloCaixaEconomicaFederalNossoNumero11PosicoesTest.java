@@ -16,6 +16,22 @@ public class InterpretadorTituloCaixaEconomicaFederalNossoNumero11PosicoesTest e
         return InstituicaoFinanceira.CAIXA_ECONOMICA_FEDERAL.getCodigo();
     }
 
+    /**
+     * O leitor da CEF, para ser valido, precisa atender a um formato padrao, portanto vamos sobrescrever o codigo de barras de teste.
+     */
+    @Override
+    protected String getCodigoBarras() {
+        return "10495567200001119009000004369025500300012340";
+    }
+
+    /**
+     * Em razao da alteracao do codigo de barras, o campo livre e diferente.
+     */
+    @Override
+    public void campoLivre() throws Exception {
+        Assert.assertEquals("9000004369025500300012340", super.interpretadorAbstrato.getCampoLivre());
+    }
+
     @Test
     public void tituloDeOutroBancoNaoEValido() {
         Assert.assertFalse(new InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes("03391569400000842649123456772000010239510102").isValidoParaInterpretacao());

@@ -19,7 +19,7 @@ import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
 public abstract class AbstractInterpretadorTituloTest {
 
     private static final String CODIGO_BARRAS_PADRAO_TESTE = "%s95567200001119002843306779912340123456001";
-    private AbstractInterpretadorTitulo interpretadorAbstrato;
+    protected AbstractInterpretadorTitulo interpretadorAbstrato;
 
     protected abstract String getCodigoInstituicaoFinanceira();
 
