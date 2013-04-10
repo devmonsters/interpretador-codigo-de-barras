@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.devmonsters.interpretador.codigodebarras.Interpretador;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBradesco;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloItau;
@@ -14,6 +15,7 @@ public enum InstituicaoFinanceira {
 
     GENERICO("000", InterpretadorTituloGenerico.class),
     BRADESCO("237", InterpretadorTituloBradesco.class),
+    CAIXA_ECONOMICA_FEDERAL("104", InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes.class),
     HSBC("399", InterpretadorTituloHsbc.class),
     ITAU("341", InterpretadorTituloItau.class),
     SANTANDER("033", InterpretadorTituloSantander.class);
