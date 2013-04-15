@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.devmonsters.interpretador.codigodebarras.Interpretador;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBancoDoBrasil;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBradesco;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloCaixaEconomicaFederalNossoNumero16Posicoes;
@@ -16,7 +16,7 @@ import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTit
 public enum InstituicaoFinanceira {
 
     GENERICO("000", InterpretadorTituloGenerico.class),
-    BANCO_DO_BRASIL("001", InterpretadorTituloBancoDoBrasil.class),
+    BANCO_DO_BRASIL("001", InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes.class),
     BRADESCO("237", InterpretadorTituloBradesco.class),
     CAIXA_ECONOMICA_FEDERAL("104", InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes.class, InterpretadorTituloCaixaEconomicaFederalNossoNumero16Posicoes.class),
     HSBC("399", InterpretadorTituloHsbc.class),
