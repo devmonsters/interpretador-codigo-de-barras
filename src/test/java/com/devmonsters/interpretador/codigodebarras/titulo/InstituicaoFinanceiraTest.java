@@ -3,8 +3,6 @@ package com.devmonsters.interpretador.codigodebarras.titulo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
-
 public class InstituicaoFinanceiraTest {
 
     @Test(expected = IllegalArgumentException.class)
@@ -25,5 +23,15 @@ public class InstituicaoFinanceiraTest {
     @Test
     public void hsbcPeloNome() {
         Assert.assertEquals(InstituicaoFinanceira.HSBC, InstituicaoFinanceira.valueOf("HSBC"));
+    }
+
+    public void verificaCodigos(){
+        Assert.assertEquals(InstituicaoFinanceira.GENERICO.getCodigo(), "000");
+        Assert.assertEquals(InstituicaoFinanceira.BANCO_DO_BRASIL.getCodigo(), "001");
+        Assert.assertEquals(InstituicaoFinanceira.BRADESCO.getCodigo(), "237");
+        Assert.assertEquals(InstituicaoFinanceira.CAIXA_ECONOMICA_FEDERAL.getCodigo(), "104");
+        Assert.assertEquals(InstituicaoFinanceira.HSBC.getCodigo(), "399");
+        Assert.assertEquals(InstituicaoFinanceira.ITAU.getCodigo(), "341");
+        Assert.assertEquals(InstituicaoFinanceira.SANTANDER.getCodigo(), "033");
     }
 }
