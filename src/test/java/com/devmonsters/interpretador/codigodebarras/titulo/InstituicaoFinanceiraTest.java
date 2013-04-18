@@ -25,7 +25,8 @@ public class InstituicaoFinanceiraTest {
         Assert.assertEquals(InstituicaoFinanceira.HSBC, InstituicaoFinanceira.valueOf("HSBC"));
     }
 
-    public void verificaCodigos(){
+    @Test
+    public void verificaCodigos() {
         Assert.assertEquals(InstituicaoFinanceira.GENERICO.getCodigo(), "000");
         Assert.assertEquals(InstituicaoFinanceira.BANCO_DO_BRASIL.getCodigo(), "001");
         Assert.assertEquals(InstituicaoFinanceira.BRADESCO.getCodigo(), "237");
