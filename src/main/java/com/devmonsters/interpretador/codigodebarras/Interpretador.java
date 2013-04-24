@@ -1,5 +1,6 @@
 package com.devmonsters.interpretador.codigodebarras;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ import java.util.Date;
  * 
  * @author Fernando M. Pinheiro
  */
-public interface Interpretador {
+public interface Interpretador extends Serializable {
 
     /**
      * Retorna o codigo de barras em si, sem alteracoes.

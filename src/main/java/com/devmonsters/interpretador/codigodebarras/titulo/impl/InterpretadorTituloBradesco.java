@@ -5,6 +5,8 @@ import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira
 
 public class InterpretadorTituloBradesco extends AbstractInterpretadorTitulo {
 
+    private static final long serialVersionUID = 2179905398761560975L;
+
     public InterpretadorTituloBradesco(final String codigoDeBarras) {
         super(codigoDeBarras);
     }

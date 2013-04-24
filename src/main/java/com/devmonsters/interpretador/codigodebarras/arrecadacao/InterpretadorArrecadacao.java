@@ -11,6 +11,7 @@ import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
 
 public class InterpretadorArrecadacao implements Interpretador {
 
+    private static final long serialVersionUID = 5332167521165636981L;
     private final String codigoDeBarras;
 
     public InterpretadorArrecadacao(final String codigoBarras) {

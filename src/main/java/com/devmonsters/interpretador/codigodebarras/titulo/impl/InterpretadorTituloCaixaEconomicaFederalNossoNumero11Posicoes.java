@@ -5,6 +5,7 @@ import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira
 
 public class InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes extends AbstractInterpretadorTitulo {
 
+    private static final long serialVersionUID = 4352222547232783629L;
     private static final String CODIGO_CARTEIRA_RAPIDA = "9";
     private static final String CODIGO_CARTEIRA_SEM_REGISTRO = "82";
 
