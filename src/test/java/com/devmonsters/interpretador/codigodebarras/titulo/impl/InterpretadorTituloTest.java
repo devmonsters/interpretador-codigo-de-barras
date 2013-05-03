@@ -1,4 +1,4 @@
-package com.devmonsters.interpretador.codigodebarras.titulo;
+package com.devmonsters.interpretador.codigodebarras.titulo.impl;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -10,26 +10,28 @@ import org.junit.Test;
 
 import com.devmonsters.interpretador.codigodebarras.InterpretadorFactory;
 import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
+import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
+import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 
 /**
  * Classe abstrata para testes de interpretadores. As implementacoes devem estender esta.
  * 
  * @author Fernando M. Pinheiro
  */
-public abstract class AbstractInterpretadorTituloTest {
+public abstract class InterpretadorTituloTest {
 
     private static final String CODIGO_BARRAS_PADRAO_TESTE = "%s95567200001119002843306779912340123456001";
-    protected AbstractInterpretadorTitulo interpretadorAbstrato;
+    protected InterpretadorTitulo interpretadorAbstrato;
 
-    protected abstract String getCodigoInstituicaoFinanceira();
+    protected abstract InstituicaoFinanceira getInstituicaoFinanceira();
 
     protected String getCodigoBarras() {
-        return String.format(AbstractInterpretadorTituloTest.CODIGO_BARRAS_PADRAO_TESTE, this.getCodigoInstituicaoFinanceira());
+        return String.format(InterpretadorTituloTest.CODIGO_BARRAS_PADRAO_TESTE, this.getInstituicaoFinanceira().getCodigo());
     }
 
     @Before
     public void interpretadorAbstrato() throws Exception {
-        this.interpretadorAbstrato = (AbstractInterpretadorTitulo) new InterpretadorFactory().getInterpretador(this.getCodigoBarras());
+        this.interpretadorAbstrato = (InterpretadorTitulo) new InterpretadorFactory().getInterpretador(this.getCodigoBarras());
     }
 
     @Test
@@ -44,7 +46,7 @@ public abstract class AbstractInterpretadorTituloTest {
 
     @Test
     public void instituicaoFinanceiraLidaDeveSerAMesmaQueEnviamos() throws Exception {
-        Assert.assertEquals(this.getCodigoInstituicaoFinanceira(), this.interpretadorAbstrato.getBanco());
+        Assert.assertEquals(this.getInstituicaoFinanceira(), this.interpretadorAbstrato.getInstituicaoFinanceira());
     }
 
     @Test

@@ -36,10 +36,11 @@ public enum InstituicaoFinanceira {
     }
 
     /**
-     * Percorre a lista de interpretadores internos desta instituicao financeira, instanciando para identificar se e valido para o codigo de barras informado.
-     *
+     * Percorre a lista de interpretadores internos desta instituicao financeira, instanciando para identificar se e valido para o codigo de barras informado.<br>
+     * Se nenhum interpretador da instituicao conseguir interpretar o titulo, retorna o {@link InterpretadorTituloGenerico}.
+     * 
      * @param codigoDeBarras Codigo de barras para interpretar.
-     * @return Instancia de intepretador; ou nulo se nao localizar um valido dentro do banco.
+     * @return Instancia de intepretador apto a interpretar o codigo de barras informado.
      * @throws Exception Erros de instanciacao.
      */
     public Interpretador getInterpretadorCodigoDeBarras(final String codigoDeBarras) throws Exception {
@@ -49,9 +50,16 @@ public enum InstituicaoFinanceira {
                 return instanciaInterpretador;
             }
         }
-        return null;
+        return new InterpretadorTituloGenerico(codigoDeBarras);
     }
 
+    /**
+     * Percorre as instituicoes financeiras conhecidas buscando a que se encaixa no codigo informado. <br>
+     * Caso nao encontre, retorna a {@link InstituicaoFinanceira#GENERICO}.
+     * 
+     * @param codigo Codigo da {@link InstituicaoFinanceira}
+     * @return {@link InstituicaoFinanceira} encontrada.
+     */
     public static InstituicaoFinanceira valueOfCodigo(final String codigo) {
         if (!codigo.matches("[0-9]{3}")) {
             throw new IllegalArgumentException("O c\u00f3digo da institui\u00e7\u00e3o financeira deve ser 3 d\u00edgitos num\u00e9ricos.");
