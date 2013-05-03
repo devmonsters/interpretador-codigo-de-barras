@@ -1,25 +1,18 @@
 package com.devmonsters.interpretador.codigodebarras.titulo.impl;
 
-import com.devmonsters.interpretador.codigodebarras.titulo.AbstractInterpretadorTitulo;
 import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
 
-
-public class InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes extends AbstractInterpretadorTitulo {
+public class InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes extends InterpretadorTitulo {
 
     private static final long serialVersionUID = -3527598342657604683L;
 
-    public InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes(String codigoDeBarras) {
+    public InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes(final String codigoDeBarras) {
         super(codigoDeBarras);
     }
 
     @Override
-    public InstituicaoFinanceira getInstituicaoFinanceira() {
-        return InstituicaoFinanceira.BANCO_DO_BRASIL;
-    }
-
-    @Override
     public boolean isValidoParaInterpretacao() {
-        return super.getCodigoDeBarras().startsWith(this.getInstituicaoFinanceira().getCodigo());
+        return InstituicaoFinanceira.BANCO_DO_BRASIL.equals(this.getInstituicaoFinanceira());
     }
 
     @Override
@@ -46,7 +39,7 @@ public class InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes extends Abstr
         return super.getCodigoDeBarras().substring(19, 23);
     }
 
-    public String getComplementoNossoNumero(){
+    public String getComplementoNossoNumero() {
         return super.getCodigoDeBarras().substring(23, 30);
     }
 

@@ -5,15 +5,14 @@ import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.devmonsters.interpretador.codigodebarras.titulo.AbstractInterpretadorTituloTest;
 import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
 import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 
-public class InterpretadorTituloBradescoTest extends AbstractInterpretadorTituloTest {
+public class InterpretadorTituloBradescoTest extends InterpretadorTituloTest {
 
     @Override
-    protected String getCodigoInstituicaoFinanceira() {
-        return InstituicaoFinanceira.BRADESCO.getCodigo();
+    protected InstituicaoFinanceira getInstituicaoFinanceira() {
+        return InstituicaoFinanceira.BRADESCO;
     }
 
     @Test
