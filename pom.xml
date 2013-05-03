@@ -6,7 +6,7 @@
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>interpretador-codigo-de-barras</name>
-	<url>https://github.com/fmpinheiro/interpretador-codigo-de-barras</url>
+	<url>https://github.com/devmonsters/interpretador-codigo-de-barras</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
