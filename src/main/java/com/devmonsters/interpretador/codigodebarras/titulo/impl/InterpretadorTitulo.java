@@ -12,7 +12,7 @@ import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
 import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
 import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 
-abstract class InterpretadorTitulo implements Interpretador {
+public abstract class InterpretadorTitulo implements Interpretador {
 
     private static final long serialVersionUID = 4437522256398278698L;
     private static final Calendar DATA_BASE_VENCIMENTO = new GregorianCalendar(1997, Calendar.OCTOBER, 7);
