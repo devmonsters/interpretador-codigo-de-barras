@@ -5,16 +5,16 @@ import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.devmonsters.interpretador.codigodebarras.titulo.AbstractInterpretadorTituloTest;
 import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
 import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 
+public class InterpretadorTituloBancoDoBrasilNossoNumero11PosicoesTest extends InterpretadorTituloTest {
 
-public class InterpretadorTituloBancoDoBrasilNossoNumero11PosicoesTest extends AbstractInterpretadorTituloTest {
     @Override
-    protected String getCodigoInstituicaoFinanceira() {
-        return InstituicaoFinanceira.BANCO_DO_BRASIL.getCodigo();
+    protected InstituicaoFinanceira getInstituicaoFinanceira() {
+        return InstituicaoFinanceira.BANCO_DO_BRASIL;
     }
+
     @Test
     public void interpretarBoletoTeste() {
         final InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes leitorBancoDoBrasil = new InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes("00196565100000658712657090008068809100000120");

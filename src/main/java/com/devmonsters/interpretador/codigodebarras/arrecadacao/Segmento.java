@@ -1,6 +1,7 @@
 package com.devmonsters.interpretador.codigodebarras.arrecadacao;
 
 public enum Segmento {
+
     PREFEITURAS(1, "Prefeituras"),
     SANEAMENTO(2, "Saneamento"),
     ENERGIA_ELETRICA_E_GAS(3, "Energia el\u00e9trica e g\u00e1s"),
