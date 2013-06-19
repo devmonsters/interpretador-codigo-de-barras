@@ -50,9 +50,12 @@ public abstract class InterpretadorTitulo implements Interpretador {
 
     @Override
     public Date getDataVencimento() {
-        final Calendar dataVencimento = (Calendar) InterpretadorTitulo.DATA_BASE_VENCIMENTO.clone();
-        dataVencimento.add(Calendar.DAY_OF_MONTH, this.getFatorVencimento());
-        return dataVencimento.getTime();
+        if (this.getFatorVencimento() > 0) {
+            final Calendar dataVencimento = (Calendar) InterpretadorTitulo.DATA_BASE_VENCIMENTO.clone();
+            dataVencimento.add(Calendar.DAY_OF_MONTH, this.getFatorVencimento());
+            return dataVencimento.getTime();
+        }
+        return null;
     }
 
     @Override
