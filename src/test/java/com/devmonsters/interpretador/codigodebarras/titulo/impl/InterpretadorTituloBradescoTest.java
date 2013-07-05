@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.devmonsters.interpretador.codigodebarras.InterpretadorFactory;
 import com.devmonsters.interpretador.codigodebarras.titulo.InstituicaoFinanceira;
 import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 
@@ -38,5 +39,10 @@ public class InterpretadorTituloBradescoTest extends InterpretadorTituloTest {
         final InterpretadorTituloBradesco leitorBradesco = new InterpretadorTituloBradesco("23791000000007000005310091302558523800002100");
         Assert.assertEquals(0, leitorBradesco.getFatorVencimento());
         Assert.assertNull(leitorBradesco.getDataVencimento());
+    }
+
+    @Test
+    public void valorZeroENulo() throws Exception {
+        Assert.assertNull(new InterpretadorFactory().getInterpretador("23798000000000000000081060081662027701318270").getValor());
     }
 }

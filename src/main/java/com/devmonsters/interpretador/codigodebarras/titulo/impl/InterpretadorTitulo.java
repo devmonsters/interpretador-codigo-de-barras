@@ -58,9 +58,14 @@ public abstract class InterpretadorTitulo implements Interpretador {
         return null;
     }
 
+    /**
+     * Se o valor do codigo de barras for 0, e porque nao ha valor, neste caso fica acertado que retorna nulo. <br>
+     * Nao ha cobranca - real - de valor 0, isto e uma forma de indicar que nao ha valor e este deve ser informado no pagamento.
+     */
     @Override
     public BigDecimal getValor() {
-        return new BigDecimal(this.codigoDeBarras.substring(9, 19)).divide(new BigDecimal("100"), new MathContext(18)).setScale(2, RoundingMode.HALF_UP);
+        final BigDecimal valorNoCodigoDeBarras = new BigDecimal(this.codigoDeBarras.substring(9, 19)).divide(new BigDecimal("100"), new MathContext(18)).setScale(2, RoundingMode.HALF_UP);
+        return valorNoCodigoDeBarras.signum() == 0 ? null : valorNoCodigoDeBarras;
     }
 
     public String getCampoLivre() {
