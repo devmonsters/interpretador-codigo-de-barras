@@ -15,8 +15,8 @@
 		<dependency.junit.version>4.11</dependency.junit.version>
 
 		<plugin.maven-compiler-plugin.version>3.0</plugin.maven-compiler-plugin.version>
-		<plugin.jacoco-maven-plugin.version>0.6.2.201302030002</plugin.jacoco-maven-plugin.version>
-		<plugin.findbugs-maven-plugin.version>2.5.2</plugin.findbugs-maven-plugin.version>
+		<plugin.jacoco-maven-plugin.version>0.6.3.201306030806</plugin.jacoco-maven-plugin.version>
+		<plugin.findbugs-maven-plugin.version>2.5.3-SNAPSHOT</plugin.findbugs-maven-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -105,11 +105,6 @@
 					</execution>
 				</executions>
 			</plugin>
-		</plugins>
-	</build>
-
-	<reporting>
-		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
@@ -123,7 +118,11 @@
 					<xmlOutput>true</xmlOutput>
 				</configuration>
 			</plugin>
+		</plugins>
+	</build>
 
+	<reporting>
+		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
