@@ -12,11 +12,7 @@ public class InterpretadorTituloBancoDoBrasilNossoNumero17Posicoes extends Inter
 
     @Override
     public boolean isValidoParaInterpretacao() {
-        return InstituicaoFinanceira.BANCO_DO_BRASIL.equals(this.getInstituicaoFinanceira());
-    }
-
-    public String getZeros() {
-        return super.getCodigoDeBarras().substring(19, 25);
+        return InstituicaoFinanceira.BANCO_DO_BRASIL.equals(this.getInstituicaoFinanceira()) && this.getCodigoDeBarras().endsWith("21");
     }
 
     @Override
@@ -25,16 +21,12 @@ public class InterpretadorTituloBancoDoBrasilNossoNumero17Posicoes extends Inter
     }
 
     public String getNumeroConvenio() {
-        return super.getCodigoDeBarras().substring(25, 32);
-    }
-
-    public String getComplementoNossoNumero() {
-        return super.getCodigoDeBarras().substring(32, 42);
+        return super.getCodigoDeBarras().substring(19, 25);
     }
 
     @Override
     public String getCodigoCarteira() {
-        return super.getCodigoDeBarras().substring(43, 44);
+        return super.getCodigoDeBarras().substring(42, 44);
     }
 
     @Override
@@ -49,6 +41,6 @@ public class InterpretadorTituloBancoDoBrasilNossoNumero17Posicoes extends Inter
 
     @Override
     public String getContaCobranca() {
-        return null;
+        return this.getNumeroConvenio();
     }
 }
