@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.devmonsters.interpretador.codigodebarras.arrecadacao.InterpretadorArrecadacao;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBancoDoBrasilConvenio7Posicoes;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBancoDoBrasilNossoNumero17Posicoes;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBradesco;
 import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes;
@@ -76,7 +78,17 @@ public class InterpretadorFactoryTest {
     }
 
     @Test
+    public void banco001deveRetornarBancoDoBrasilNossoNumero11Posicoes() throws Exception {
+        Assert.assertEquals(InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes.class, new InterpretadorFactory().getInterpretador("00196565100000658712657090008068809100000120").getClass());
+    }
+
+    @Test
     public void banco001deveRetornarBancoDoBrasilNossoNumero17Posicoes() throws Exception {
         Assert.assertEquals(InterpretadorTituloBancoDoBrasilNossoNumero17Posicoes.class, new InterpretadorFactory().getInterpretador("00192433400003818174568230456823090000000821").getClass());
+    }
+
+    @Test
+    public void banco001deveRetornarBancoDoBrasilConvenio7Posicoes() throws Exception {
+        Assert.assertEquals(InterpretadorTituloBancoDoBrasilConvenio7Posicoes.class, new InterpretadorFactory().getInterpretador("00199442700000270500000001535175000021679818").getClass());
     }
 }

@@ -33,4 +33,19 @@ public class InterpretadorTituloBancoDoBrasilNossoNumero11PosicoesTest extends I
         Assert.assertEquals("0900080", leitorBancoDoBrasil.getComplementoNossoNumero());
         Assert.assertTrue(leitorBancoDoBrasil.isContaCobrancaRastreavel());
     }
+
+    @Test
+    public void boletoDoBancoDoBrasilConvenio7PosicoesNaoEValido() {
+        Assert.assertFalse(new InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes("00199442700000270500000001535175000021679818").isValidoParaInterpretacao());
+    }
+
+    @Test
+    public void boletoDoBancoDoBrasilNossoNumero17PosicoesNaoEValido() {
+        Assert.assertFalse(new InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes("00192433400003818174568230456823090000000821").isValidoParaInterpretacao());
+    }
+
+    @Test
+    public void boletoDeOutroBancoNaoEValido() {
+        Assert.assertFalse(new InterpretadorTituloBancoDoBrasilNossoNumero17Posicoes("23796565100000658712657090008068809100000120").isValidoParaInterpretacao());
+    }
 }

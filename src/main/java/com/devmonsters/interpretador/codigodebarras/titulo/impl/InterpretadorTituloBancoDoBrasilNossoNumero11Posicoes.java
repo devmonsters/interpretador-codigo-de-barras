@@ -12,7 +12,7 @@ public class InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes extends Inter
 
     @Override
     public boolean isValidoParaInterpretacao() {
-        return InstituicaoFinanceira.BANCO_DO_BRASIL.equals(this.getInstituicaoFinanceira()) && !this.getCodigoDeBarras().endsWith("21");
+        return InstituicaoFinanceira.BANCO_DO_BRASIL.equals(this.getInstituicaoFinanceira()) && !this.getCodigoDeBarras().endsWith("21") && !this.getCodigoDeBarras().substring(19, 25).equals("000000");
     }
 
     @Override
