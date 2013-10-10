@@ -46,6 +46,6 @@ public class InterpretadorTituloBancoDoBrasilNossoNumero11PosicoesTest extends I
 
     @Test
     public void boletoDeOutroBancoNaoEValido() {
-        Assert.assertFalse(new InterpretadorTituloBancoDoBrasilNossoNumero17Posicoes("23796565100000658712657090008068809100000120").isValidoParaInterpretacao());
+        Assert.assertFalse(new InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes("23796565100000658712657090008068809100000120").isValidoParaInterpretacao());
     }
 }
