@@ -91,4 +91,18 @@ public class InterpretadorFactoryTest {
     public void banco001deveRetornarBancoDoBrasilConvenio7Posicoes() throws Exception {
         Assert.assertEquals(InterpretadorTituloBancoDoBrasilConvenio7Posicoes.class, new InterpretadorFactory().getInterpretador("00199442700000270500000001535175000021679818").getClass());
     }
+
+    @Test
+    public void aPartirDaLinhaDigitavelIdentificarInterpretadorItau() throws Exception {
+        final Interpretador interpretador = new InterpretadorFactory().getInterpretador("34191751654801754297711099270008158430000015480");
+        Assert.assertEquals("34191584300000154801751648017542971109927000", interpretador.getCodigoDeBarras());
+        Assert.assertEquals(InterpretadorTituloItau.class, interpretador.getClass());
+    }
+
+    @Test
+    public void aPartirDaLinhaDigitavelIdentificarInterpretadorBradesco() throws Exception {
+        final Interpretador interpretador = new InterpretadorFactory().getInterpretador("23790665059113282099303011830001258750000033400");
+        Assert.assertEquals("23792587500000334000665091132820990301183000", interpretador.getCodigoDeBarras());
+        Assert.assertEquals(InterpretadorTituloBradesco.class, interpretador.getClass());
+    }
 }
