@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.devmonsters</groupId>
 	<artifactId>interpretador-codigo-de-barras</artifactId>
@@ -10,13 +9,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
 		<dependency.junit.version>4.11</dependency.junit.version>
-
-		<plugin.maven-compiler-plugin.version>3.0</plugin.maven-compiler-plugin.version>
-		<plugin.jacoco-maven-plugin.version>0.6.3.201306030806</plugin.jacoco-maven-plugin.version>
-		<plugin.findbugs-maven-plugin.version>2.5.3-SNAPSHOT</plugin.findbugs-maven-plugin.version>
+		<plugin.maven-compiler-plugin.version>3.2</plugin.maven-compiler-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -76,62 +70,6 @@
 					<debug>false</debug>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>${plugin.jacoco-maven-plugin.version}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-						<configuration>
-							<includes>
-								<include>com.devmonsters.*</include>
-							</includes>
-						</configuration>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-						<configuration>
-							<includes>
-								<include>com.devmonsters.*</include>
-							</includes>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>${plugin.findbugs-maven-plugin.version}</version>
-				<configuration>
-					<effort>Max</effort>
-					<threshold>Low</threshold>
-					<maxRank>20</maxRank>
-					<excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
-					<findbugsXmlWithMessages>true</findbugsXmlWithMessages>
-					<xmlOutput>true</xmlOutput>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
-
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.0.1</version>
-				<configuration>
-					<linkXref>true</linkXref>
-					<sourceEncoding>utf-8</sourceEncoding>
-				</configuration>
-			</plugin>
-		</plugins>
-	</reporting>
 </project>
