@@ -8,6 +8,6 @@ jdk:
 notifications:
     email:
         recipients:
-            - diego+traviscnab@devmonsters.com
+            - diego+travisinterpretadorcodigobarras@devmonsters.com
         on_success: change
         on_failure: always
