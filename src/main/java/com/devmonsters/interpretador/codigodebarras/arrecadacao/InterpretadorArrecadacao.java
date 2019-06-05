@@ -3,6 +3,7 @@ package com.devmonsters.interpretador.codigodebarras.arrecadacao;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -74,6 +75,9 @@ public class InterpretadorArrecadacao implements Interpretador {
     public Date getDataVencimento() {
         if (this.isCampoLivrePossuiVencimento()) {
             final int ano = Integer.parseInt(this.getCampoLivreVencimento().substring(0, 4));
+            if(Math.abs(LocalDate.now().getYear()-ano) > 3){
+                return null;
+            }
             final int mes = Integer.parseInt(this.getCampoLivreVencimento().substring(4, 6)) - 1;
             final int dia = Integer.parseInt(this.getCampoLivreVencimento().substring(6, 8));
             return new GregorianCalendar(ano, mes, dia).getTime();
@@ -82,7 +86,7 @@ public class InterpretadorArrecadacao implements Interpretador {
     }
 
     private boolean isCampoLivrePossuiVencimento() {
-        return this.getCampoLivreVencimento().matches("^(19|20)\\d\\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])$");
+        return this.getCampoLivreVencimento().matches("^(20)\\d\\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])$");
     }
 
     private String getCampoLivreVencimento() {

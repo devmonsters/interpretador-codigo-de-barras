@@ -1,7 +1,11 @@
 package com.devmonsters.interpretador.codigodebarras.arrecadacao;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.junit.Assert;
@@ -23,7 +27,6 @@ public class InterpretadorArrecadacaoTest {
         Assert.assertEquals("2012073104002012980062101", interpretadorArrecadacao.getCampoLivre1UtilizacaoEmpresaOrgao());
         Assert.assertEquals("34332012", interpretadorArrecadacao.getCnpjMf());
         Assert.assertEquals("073104002012980062101", interpretadorArrecadacao.getCampoLivre2UtilizacaoEmpresaOrgao());
-        Assert.assertEquals(new GregorianCalendar(2012, Calendar.JULY, 31).getTime(), interpretadorArrecadacao.getDataVencimento());
         Assert.assertEquals(TipoDocumento.ARRECADACAO, interpretadorArrecadacao.getTipoDocumento());
     }
 
@@ -121,5 +124,20 @@ public class InterpretadorArrecadacaoTest {
         Assert.assertEquals("552316988150427822511", interpretadorArrecadacao.getCampoLivre2UtilizacaoEmpresaOrgao());
         Assert.assertNull(interpretadorArrecadacao.getDataVencimento());
         Assert.assertEquals(TipoDocumento.ARRECADACAO, interpretadorArrecadacao.getTipoDocumento());
+    }
+
+    @Test
+    public void interpretarDatasVencimentoInvalida() {
+        Assert.assertNull(new InterpretadorArrecadacao("85800000013278800901916101201906047006925500").getDataVencimento());
+    }
+
+    @Test
+    public void interpretarDatasVencimentoValida() {
+        Assert.assertNotNull(new InterpretadorArrecadacao(String.format("8580000001327880090%s01906047006925500", LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")))).getDataVencimento());
+    }
+
+    @Test
+    public void interpretarDatasVencimentoFutura() {
+        Assert.assertNotNull(new InterpretadorArrecadacao(String.format("8580000001327880090%s01906047006925500", LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")))).getDataVencimento());
     }
 }
