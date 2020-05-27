@@ -1,19 +1,9 @@
 package com.devmonsters.interpretador.codigodebarras;
 
+import com.devmonsters.interpretador.codigodebarras.arrecadacao.InterpretadorArrecadacao;
+import com.devmonsters.interpretador.codigodebarras.titulo.impl.*;
 import org.junit.Assert;
 import org.junit.Test;
-
-import com.devmonsters.interpretador.codigodebarras.arrecadacao.InterpretadorArrecadacao;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBancoDoBrasilConvenio7Posicoes;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBancoDoBrasilNossoNumero11Posicoes;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBancoDoBrasilNossoNumero17Posicoes;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloBradesco;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloCaixaEconomicaFederalNossoNumero11Posicoes;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloCaixaEconomicaFederalNossoNumero16Posicoes;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloGenerico;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloHsbc;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloItau;
-import com.devmonsters.interpretador.codigodebarras.titulo.impl.InterpretadorTituloSantander;
 
 public class InterpretadorFactoryTest {
 
@@ -28,8 +18,13 @@ public class InterpretadorFactoryTest {
     }
 
     @Test
-    public void pagamentoDeArrecadacao() throws Exception {
+    public void pagamentoDeArrecadacao44() throws Exception {
         Assert.assertEquals(InterpretadorArrecadacao.class, new InterpretadorFactory().getInterpretador("85850000001045402941309401000000130151769700").getClass());
+    }
+
+    @Test
+    public void pagamentoDeArrecadacao48() throws Exception {
+        Assert.assertEquals(InterpretadorArrecadacao.class, new InterpretadorFactory().getInterpretador("846200000038484500040007044585763301316266809003").getClass());
     }
 
     @Test
