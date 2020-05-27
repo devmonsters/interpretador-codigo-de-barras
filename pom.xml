@@ -4,14 +4,14 @@
     <groupId>com.devmonsters</groupId>
     <artifactId>interpretador-codigo-de-barras</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <name>interpretador-codigo-de-barras</name>
     <url>https://github.com/devmonsters/interpretador-codigo-de-barras</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <dependency.junit.version>4.11</dependency.junit.version>
-        <plugin.maven-compiler-plugin.version>3.2</plugin.maven-compiler-plugin.version>
+        <plugin.maven-compiler-plugin.version>3.8.1</plugin.maven-compiler-plugin.version>
+        <dependency.junit.version>4.13</dependency.junit.version>
     </properties>
 
     <dependencies>
@@ -65,8 +65,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${plugin.maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>11</source>
+                    <target>11</target>
                     <optimize>true</optimize>
                     <debug>false</debug>
                 </configuration>

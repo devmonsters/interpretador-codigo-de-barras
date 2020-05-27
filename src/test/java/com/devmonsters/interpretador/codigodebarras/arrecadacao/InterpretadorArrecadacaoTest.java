@@ -1,17 +1,12 @@
 package com.devmonsters.interpretador.codigodebarras.arrecadacao;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
+import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class InterpretadorArrecadacaoTest {
 
@@ -74,6 +69,22 @@ public class InterpretadorArrecadacaoTest {
         Assert.assertEquals("0011210978294803130130410", interpretadorArrecadacao.getCampoLivre1UtilizacaoEmpresaOrgao());
         Assert.assertEquals("00690011", interpretadorArrecadacao.getCnpjMf());
         Assert.assertEquals("210978294803130130410", interpretadorArrecadacao.getCampoLivre2UtilizacaoEmpresaOrgao());
+        Assert.assertNull(interpretadorArrecadacao.getDataVencimento());
+        Assert.assertEquals(TipoDocumento.ARRECADACAO, interpretadorArrecadacao.getTipoDocumento());
+    }
+
+    @Test
+    public void interpretarArrecadacaoTelecomunicacoesAlgar() {
+        final InterpretadorArrecadacao interpretadorArrecadacao = new InterpretadorArrecadacao("84620000003484500040000445857633031626680900");
+        Assert.assertEquals(8, interpretadorArrecadacao.getCodigoIdentificacaoProduto());
+        Assert.assertEquals(Segmento.TELECOMUNICACOES, interpretadorArrecadacao.getSegmento());
+        Assert.assertEquals(6, interpretadorArrecadacao.getIdentificacaoValor());
+        Assert.assertEquals(2, interpretadorArrecadacao.getDigitoVerificadorGeral());
+        Assert.assertEquals(new BigDecimal("348.45"), interpretadorArrecadacao.getValor());
+        Assert.assertEquals("0004", interpretadorArrecadacao.getIdentificacaoEmpresaOrgao());
+        Assert.assertEquals("0000445857633031626680900", interpretadorArrecadacao.getCampoLivre1UtilizacaoEmpresaOrgao());
+        Assert.assertEquals("00040000", interpretadorArrecadacao.getCnpjMf());
+        Assert.assertEquals("445857633031626680900", interpretadorArrecadacao.getCampoLivre2UtilizacaoEmpresaOrgao());
         Assert.assertNull(interpretadorArrecadacao.getDataVencimento());
         Assert.assertEquals(TipoDocumento.ARRECADACAO, interpretadorArrecadacao.getTipoDocumento());
     }
