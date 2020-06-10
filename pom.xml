@@ -27,7 +27,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Wmix Video Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/wmixvideo/interpretador-codigo-de-barras</url>
+            <url>https://maven.pkg.github.com/wmixlabs/interpretador-codigo-de-barras</url>
         </repository>
     </distributionManagement>
 
