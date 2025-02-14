@@ -15,7 +15,7 @@ import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 
 /**
  * Classe abstrata para testes de interpretadores. As implementacoes devem estender esta.
- * 
+ *
  * @author Fernando M. Pinheiro
  */
 public abstract class InterpretadorTituloTest {
@@ -66,7 +66,7 @@ public abstract class InterpretadorTituloTest {
 
     @Test
     public void dataDeVencimento() throws Exception {
-        Assert.assertEquals(new GregorianCalendar(2013, Calendar.APRIL, 18).getTime(), this.interpretadorAbstrato.getDataVencimento());
+        Assert.assertEquals(new GregorianCalendar(2037, Calendar.DECEMBER, 8).getTime(), this.interpretadorAbstrato.getDataVencimento());
     }
 
     @Test
@@ -77,5 +77,35 @@ public abstract class InterpretadorTituloTest {
     @Test
     public void campoLivre() throws Exception {
         Assert.assertEquals("2843306779912340123456001", this.interpretadorAbstrato.getCampoLivre());
+    }
+
+    @Test
+    public void dataVencimentoCodigoBarrasAnterior22022025() throws Exception {
+        Assert.assertEquals(new GregorianCalendar(2025, Calendar.FEBRUARY, 10).getTime(), new InterpretadorFactory().getInterpretador("00197998800000030000000003128557100012378017").getDataVencimento());
+    }
+
+    @Test
+    public void dataVencimentoLinhaDigitavelAnterior22022025() throws Exception {
+        Assert.assertEquals(new GregorianCalendar(2025, Calendar.FEBRUARY, 7).getTime(), new InterpretadorFactory().getInterpretador("00190000090312855710900123780173799850000003000").getDataVencimento());
+    }
+
+    @Test
+    public void dataVencimentoCodigoBarrasPosterior22022025() throws Exception {
+        Assert.assertEquals(new GregorianCalendar(2025, Calendar.FEBRUARY, 24).getTime(), new InterpretadorFactory().getInterpretador("00197100200000030000000003128557100012378017").getDataVencimento());
+    }
+
+    @Test
+    public void dataVencimentoLinhaDigitavelPosterior22022025() throws Exception {
+        Assert.assertEquals(new GregorianCalendar(2025, Calendar.FEBRUARY, 24).getTime(), new InterpretadorFactory().getInterpretador("00190000090312855710900123780173710020000003000").getDataVencimento());
+    }
+
+    @Test
+    public void dataVencimentoLinhaDigitavel2Posterior22022025() throws Exception {
+        Assert.assertEquals(new GregorianCalendar(2025, Calendar.JUNE, 4).getTime(), new InterpretadorFactory().getInterpretador("34191090080027254849699978910000711020000066689").getDataVencimento());
+    }
+
+    @Test
+    public void dataVencimentoLinhaDigitavel3Posterior22022025() throws Exception {
+        Assert.assertEquals(new GregorianCalendar(2022, Calendar.NOVEMBER, 22).getTime(), new InterpretadorFactory().getInterpretador("74891140127872810100301142001054791770000054103").getDataVencimento());
     }
 }
