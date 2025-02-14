@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 
 import com.devmonsters.interpretador.codigodebarras.Interpretador;
 import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
@@ -58,7 +56,7 @@ public abstract class InterpretadorTitulo implements Interpretador {
     }
 
     @Override
-    public Date getDataVencimento() {
+    public LocalDate getDataVencimento() {
         int fatorVencimento = this.getFatorVencimento();
         if (fatorVencimento > 0) {
             final var dataAtual = LocalDate.now();
@@ -70,9 +68,9 @@ public abstract class InterpretadorTitulo implements Interpretador {
             final var dataVencimento = DATA_BASE_VENCIMENTO.plusDays(fatorVencimento);
             if (!(dataVencimento.isAfter(dataBaseMin) && dataVencimento.isBefore(dataBaseMax))) {
                 final var dataVencimentoPos2025 = DATA_BASE_VENCIMENTO_POS_22022025.plusDays(fatorVencimento - VALOR_INICIAL_FATOR_VENCIMENTO_POS_22022025);
-                return Date.from(dataVencimentoPos2025.atStartOfDay(ZoneId.systemDefault()).toInstant());
+                return dataVencimentoPos2025;
             }
-            return Date.from(dataVencimento.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            return dataVencimento;
         }
         return null;
     }

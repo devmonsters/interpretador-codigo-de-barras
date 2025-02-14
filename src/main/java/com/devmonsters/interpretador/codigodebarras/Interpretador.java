@@ -2,7 +2,7 @@ package com.devmonsters.interpretador.codigodebarras;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Interface basica para interpretacao.<br>
@@ -30,5 +30,5 @@ public interface Interpretador extends Serializable {
     
     BigDecimal getValor();
     
-    Date getDataVencimento();
+    LocalDate getDataVencimento();
 }
