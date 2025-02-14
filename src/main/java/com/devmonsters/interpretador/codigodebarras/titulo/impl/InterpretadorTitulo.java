@@ -3,9 +3,7 @@ package com.devmonsters.interpretador.codigodebarras.titulo.impl;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
 
 import com.devmonsters.interpretador.codigodebarras.Interpretador;
 import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
@@ -15,7 +13,11 @@ import com.devmonsters.interpretador.codigodebarras.titulo.Moeda;
 public abstract class InterpretadorTitulo implements Interpretador {
 
     private static final long serialVersionUID = 4437522256398278698L;
-    private static final Calendar DATA_BASE_VENCIMENTO = new GregorianCalendar(1997, Calendar.OCTOBER, 7);
+    private static final LocalDate DATA_BASE_VENCIMENTO = LocalDate.of(1997, 10, 7);
+    private static final LocalDate DATA_BASE_VENCIMENTO_POS_22022025 = LocalDate.of(2025, 2, 22);
+    public static final int VALOR_INICIAL_FATOR_VENCIMENTO_POS_22022025 = 1000;
+    public static final int LIMITE_MINIMO_DIAS = 3000;
+    public static final int LIMITE_MAXIMO_DIAS = 5500;
     private final String codigoDeBarras;
 
     public InterpretadorTitulo(final String codigoDeBarras) {
@@ -45,15 +47,30 @@ public abstract class InterpretadorTitulo implements Interpretador {
     }
 
     public int getFatorVencimento() {
+        //A posição do fator vencimento varia de codigo de barras para linha digitavel, vide em https://www.boletobancario-codigodebarras.com/2016/04/linha-digitavel.html
+        if (this.codigoDeBarras.length() == 47) {// é linha digitavel
+            return Integer.parseInt(this.codigoDeBarras.substring(33, 37));
+        }
+        //é código de barras
         return Integer.parseInt(this.codigoDeBarras.substring(5, 9));
     }
 
     @Override
-    public Date getDataVencimento() {
-        if (this.getFatorVencimento() > 0) {
-            final Calendar dataVencimento = (Calendar) InterpretadorTitulo.DATA_BASE_VENCIMENTO.clone();
-            dataVencimento.add(Calendar.DAY_OF_MONTH, this.getFatorVencimento());
-            return dataVencimento.getTime();
+    public LocalDate getDataVencimento() {
+        int fatorVencimento = this.getFatorVencimento();
+        if (fatorVencimento > 0) {
+            final var dataAtual = LocalDate.now();
+            //São considerados válidos (e com possibilidade de pagamento) os boletos cujo fator de vencimento esteja entre 3.000 dias anteriores e 5.500 dias posteriores à data
+            //Com isso, estabelecemos limites no vencimento do boleto e desconsideramos boletos antigos, https://forum.casadodesenvolvedor.com.br/topic/49188-22-de-fevereiro-de-2025-por-que-emissores-de-boletos-precisam-se-atentar-a-esta-data/
+            final var dataBaseMin = dataAtual.minusDays(LIMITE_MINIMO_DIAS);
+            final var dataBaseMax = dataAtual.plusDays(LIMITE_MAXIMO_DIAS);
+
+            final var dataVencimento = DATA_BASE_VENCIMENTO.plusDays(fatorVencimento);
+            if (!(dataVencimento.isAfter(dataBaseMin) && dataVencimento.isBefore(dataBaseMax))) {
+                final var dataVencimentoPos2025 = DATA_BASE_VENCIMENTO_POS_22022025.plusDays(fatorVencimento - VALOR_INICIAL_FATOR_VENCIMENTO_POS_22022025);
+                return dataVencimentoPos2025;
+            }
+            return dataVencimento;
         }
         return null;
     }

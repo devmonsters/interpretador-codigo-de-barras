@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import com.devmonsters.interpretador.codigodebarras.Interpretador;
 import com.devmonsters.interpretador.codigodebarras.TipoDocumento;
@@ -72,7 +70,7 @@ public class InterpretadorArrecadacao implements Interpretador {
     }
 
     @Override
-    public Date getDataVencimento() {
+    public LocalDate getDataVencimento() {
         if (this.isCampoLivrePossuiVencimento()) {
             final int ano = Integer.parseInt(this.getCampoLivreVencimento().substring(0, 4));
             if(Math.abs(LocalDate.now().getYear()-ano) > 3){
@@ -80,7 +78,7 @@ public class InterpretadorArrecadacao implements Interpretador {
             }
             final int mes = Integer.parseInt(this.getCampoLivreVencimento().substring(4, 6)) - 1;
             final int dia = Integer.parseInt(this.getCampoLivreVencimento().substring(6, 8));
-            return new GregorianCalendar(ano, mes, dia).getTime();
+            return LocalDate.of(ano, mes, dia);
         }
         return null;
     }
